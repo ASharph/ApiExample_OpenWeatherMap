@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
 using System.Net;
 using Newtonsoft.Json;
@@ -28,8 +24,8 @@ namespace ApiExample_OpenWeatherMap
                 using (StreamReader sr = new StreamReader(response.GetResponseStream()))
                 {
                     responseStr = sr.ReadToEnd();
-
                 }
+
                 Weather weatherResponse = JsonConvert.DeserializeObject<Weather>(responseStr);
 
                 DateTime sunset = UnixTimeStampToDateTime(weatherResponse.sys.Sunset);
